@@ -464,7 +464,7 @@ class APICaller {
             sign: false // no need to sign
         });
 
-        if (res && Array.isArray(res)) {
+        if ((res && !symbolId && Array.isArray(res)) || (res && symbolId && typeof(res) === 'string')) {
             return res;
         }
         else {
